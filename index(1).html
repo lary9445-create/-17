@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Для тебя ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #ffb6c9 0%,
+                    transparent 40%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffd6e0,
+                    #fff0f5
+                );
+
+            font-family: Arial, sans-serif;
+
+            color: #5c2638;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.85
+            );
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    120,
+                    30,
+                    60,
+                    0.2
+                );
+        }
+
+        .heart {
+            font-size: 80px;
+
+            color: #ff477e;
+
+            animation:
+                heartbeat 1.3s infinite;
+        }
+
+        .mini-heart {
+            font-size: 45px;
+
+            color: #ff477e;
+
+            margin-bottom: 10px;
+
+            animation:
+                heartbeat 1.3s infinite;
+        }
+
+        h1 {
+            margin: 10px 0 20px;
+
+            font-size: 38px;
+
+            color: #c72f5b;
+        }
+
+        .text {
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+        .number {
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #c72f5b;
+
+            margin-bottom: 15px;
+        }
+
+        .message {
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+
+            margin: 10px 0 25px;
+        }
+
+        button {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            background: #ff477e;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                background 0.2s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    255,
+                    71,
+                    126,
+                    0.3
+                );
+        }
+
+        button:hover {
+            background: #e9366a;
+
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 10px;
+        }
+
+        .back {
+            background: #e9a0b5;
+        }
+
+        .back:hover {
+            background: #d88ba1;
+        }
+
+        .progress {
+            margin-top: 20px;
+
+            font-size: 15px;
+
+            color: #9a5268;
+        }
+
+        .final-text {
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            margin: 25px 0 30px;
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.15);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.12);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            .heart {
+                font-size: 65px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .buttons button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================== -->
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <!-- ==================== -->
+
+    <div id="start">
+
+        <div class="heart">
+            ♥
+        </div>
+
+
+        <h1>
+            Любимая ❤️
+        </h1>
+
+
+        <div class="text">
+
+            Поздравляю тебя
+            с днём рождения! 🎂❤️
+
+            <br><br>
+
+            Это мой первый подарочек
+            для тебя.
+
+            <br><br>
+
+            Я хотел сказать тебе
+            <b>100 причин, почему я тебя люблю...</b>
+
+            <br><br>
+
+            Поэтому я записал их
+            для тебя ❤️
+
+        </div>
+
+
+        <button onclick="begin()">
+
+            Послушать мои
+            100 причин ❤️
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================== -->
+    <!-- ЭКРАН С ГС -->
+    <!-- ==================== -->
+
+    <div
+        id="voices"
+        style="display: none;"
+    >
+
+        <div class="mini-heart">
+            ♥
+        </div>
+
+
+        <div
+            class="number"
+            id="number"
+        >
+
+            ГС №1
+
+        </div>
+
+
+        <div class="message">
+
+            Послушай ❤️
+
+        </div>
+
+
+        <audio
+            id="audio"
+            controls
+            preload="metadata"
+        >
+
+            Ваш браузер
+            не поддерживает аудио.
+
+        </audio>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back"
+                onclick="restart()"
+            >
+
+                Заново
+
+            </button>
+
+
+            <button onclick="next()">
+
+                Далее ❤️
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            class="progress"
+            id="progress"
+        >
+
+            1 / 100
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================== -->
+    <!-- ФИНАЛЬНЫЙ ЭКРАН -->
+    <!-- ==================== -->
+
+    <div
+        id="final"
+        style="display: none;"
+    >
+
+        <div class="heart">
+            ♥
+        </div>
+
+
+        <div class="final-text">
+
+            Это всё ❤️
+
+            <br><br>
+
+            Но я люблю тебя намного больше,
+            чем можно рассказать
+            в 100 ГС.
+
+            <br><br>
+
+            С днём рождения,
+            любимая! ❤️
+
+        </div>
+
+
+        <button onclick="restart()">
+
+            Ещё раз ❤️
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+    // ==========================================
+    // ВСЕ 100 ГС
+    // ==========================================
+
+
+    const voices = Array.from(
+
+        { length: 100 },
+
+        (_, i) =>
+            `voice_messages/audio_${i + 1}.ogg`
+
+    );
+
+
+
+    // ==========================================
+    // ТЕКУЩИЙ ГС
+    // ==========================================
+
+
+    let current = 0;
+
+
+
+    // ==========================================
+    // ЭЛЕМЕНТЫ СТРАНИЦЫ
+    // ==========================================
+
+
+    const audio =
+        document.getElementById("audio");
+
+
+    const number =
+        document.getElementById("number");
+
+
+    const progress =
+        document.getElementById("progress");
+
+
+
+    // ==========================================
+    // ЗАГРУЗКА ТЕКУЩЕГО ГС
+    // ==========================================
+
+
+    function loadVoice() {
+
+        audio.pause();
+
+        audio.currentTime = 0;
+
+        audio.src = voices[current];
+
+
+        number.textContent =
+            `ГС №${current + 1}`;
+
+
+        progress.textContent =
+            `${current + 1} / ${voices.length}`;
+
+
+        audio.load();
+
+    }
+
+
+
+    // ==========================================
+    // КНОПКА "ПОСЛУШАТЬ"
+    // ==========================================
+
+
+    function begin() {
+
+        current = 0;
+
+
+        document
+            .getElementById("start")
+            .style.display = "none";
+
+
+        document
+            .getElementById("voices")
+            .style.display = "block";
+
+
+        document
+            .getElementById("final")
+            .style.display = "none";
+
+
+        loadVoice();
+
+    }
+
+
+
+    // ==========================================
+    // КНОПКА "ДАЛЕЕ ❤️"
+    // ==========================================
+
+
+    function next() {
+
+        if (
+            current <
+            voices.length - 1
+        ) {
+
+            current++;
+
+            loadVoice();
+
+        }
+
+        else {
+
+            showFinal();
+
+        }
+
+    }
+
+
+
+    // ==========================================
+    // ПОКАЗАТЬ ФИНАЛ
+    // ==========================================
+
+
+    function showFinal() {
+
+        audio.pause();
+
+        audio.currentTime = 0;
+
+
+        document
+            .getElementById("start")
+            .style.display = "none";
+
+
+        document
+            .getElementById("voices")
+            .style.display = "none";
+
+
+        document
+            .getElementById("final")
+            .style.display = "block";
+
+    }
+
+
+
+    // ==========================================
+    // КНОПКА "ЗАНОВО"
+    // ==========================================
+
+
+    function restart() {
+
+        current = 0;
+
+
+        document
+            .getElementById("start")
+            .style.display = "none";
+
+
+        document
+            .getElementById("voices")
+            .style.display = "block";
+
+
+        document
+            .getElementById("final")
+            .style.display = "none";
+
+
+        loadVoice();
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
